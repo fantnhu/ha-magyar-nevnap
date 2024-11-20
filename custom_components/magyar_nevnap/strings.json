@@ -1,0 +1,27 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Az integráció már be van állítva"
+        },
+        "step": {
+            "user": {
+                "description": "Magyar névnap szolgáltatás beállítása",
+                "title": "Magyar Névnapok"
+            }
+        },
+        "title": "Magyar Névnapok"
+    },
+    "entity": {
+        "sensor": {
+            "nevnap_elso": {
+                "name": "Névnap elsődleges"
+            },
+            "nevnap_masodik": {
+                "name": "Névnap másodlagos"
+            },
+            "egyeb_nevnapok": {
+                "name": "Egyéb Névnapok"
+            }
+        }
+    }
+}

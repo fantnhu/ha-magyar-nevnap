@@ -1,0 +1,14 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Integration is already configured"
+        },
+        "step": {
+            "user": {
+                "description": "Set up Hungarian nameday integration",
+                "title": "Hungarian Namedays"
+            }
+        },
+        "title": "Hungarian Namedays"
+    }
+}
