@@ -1,10 +1,14 @@
 # Magyar Névnap Integráció a Home Assistant-hoz
-## Áttekintés
-Ez egy custom integráció, amely a magyar névnapokat jeleníti meg a Home Assistant rendszerben. Az integráció két szenzort hoz létre:
--	Névnap elsődleges
--	Névnap másodlagos
+***This integration might be interesting for Hungarian users! This integration collects the Hungarian name days.***
+Az integráció elsősorban magyar felhasználóknak készült, mivel magyar neveket tartalmaz, és Magyarországon ünnepeljük a névnapokat.
 
-Ha az adott napon két névnap van, ezek az entitások a névnapokat jelenítik meg. Az integráció elsősorban magyar felhasználóknak készült, mivel magyar neveket tartalmaz, és Magyarországon ünnepeljük a névnapokat.
+## Áttekintés
+Ez egy egyedi integráció, amely a magyar névnapokat jeleníti meg a Home Assistant rendszerben. Az integráció két szenzort hoz létre:
+-	Kiemelt névnap
+-	Másodlagos névnap
+
+Valamint az integráció létrehoz egy naptárat, melybe minden nap bekerül az aktuális névnap:
+- Magyar névnap
 ________________________________________
 ## Fő jellemzők
 -	Két szenzor a névnapok megjelenítésére.
