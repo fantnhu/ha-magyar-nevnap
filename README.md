@@ -1,62 +1,63 @@
 ![](https://raw.githubusercontent.com/fantnhu/ha-magyar-nevnap/refs/heads/main/img/header_img.png)
-# Magyar Névnap Integráció a Home Assistant-hoz
+# Magyar Névnap Integráció Home Assistant-hoz
+
 ***This integration might be interesting for Hungarian users! This integration collects the Hungarian name days.***
-Az integráció elsősorban magyar felhasználóknak készült, mivel magyar neveket tartalmaz, és Magyarországon ünnepeljük a névnapokat.
 
-## Áttekintés
-Ez egy egyedi integráció, amely a magyar névnapokat jeleníti meg a Home Assistant rendszerben. Az integráció két szenzort hoz létre:
--	Kiemelt névnap
--	Másodlagos névnap
+## 📝 Leírás
 
-Valamint az integráció létrehoz egy naptárat, melybe minden nap bekerül az aktuális névnap:
-- Magyar névnap
+A Magyar Névnap integráció lehetővé teszi a magyar névnapok megjelenítését a Home Assistant rendszerben. Az integráció elsősorban magyar felhasználóknak készült, mivel magyar neveket tartalmaz, és Magyarországon ünnepeljük a névnapokat.
 
-![](https://raw.githubusercontent.com/fantnhu/ha-magyar-nevnap/refs/heads/main/img/screenshot01.png)
-________________________________________
-## Fő jellemzők
--	Két szenzor a névnapok megjelenítésére.
--	Könnyen telepíthető a HACS-on keresztül vagy manuálisan.
--	Felhasználói felületen keresztül konfigurálható.
-________________________________________
-## Telepítés
-### 1. Telepítés HACS-on keresztül
-1.	Győződj meg róla, hogy a Home Assistant Community Store (HACS) telepítve van.
-2.	Nyisd meg a HACS-t a Home Assistant rendszerben.
-3.	Válaszd a Integrations szekciót.
-4.	Kattints a jobb felső sarokban lévő "+" gombra.
-5.	Keresd meg a **Magyar Névnap** Integráció-t.
-6.	Kattints a Download (Letöltés) gombra.
-7.	Indítsd újra a Home Assistant rendszert.
-________________________________________
-### 2. Manuális telepítés
-1.	Töltsd le az integráció legfrissebb verzióját a GitHub repóból.
-2.	Csomagold ki a letöltött fájlokat.
-3.	Másold a kicsomagolt mappát a Home Assistant rendszer custom_components mappájába. Például: * */config/custom_components/magyar_nevnap* *
-4.	Indítsd újra a Home Assistant rendszert.
-________________________________________
-## Konfiguráció
-Az integráció konfigurálható a Home Assistant felhasználói felületén:
-1.	Navigálj a **Beállítások** > **Eszközök** és szolgáltatások menübe.
-2.	Kattints az **Integráció hozzáadása** gombra.
-3.	Keresd meg a **Magyar Névnap Integráció**-t a listában.
-4.	Kövesd a megjelenő utasításokat.
-________________________________________
-## Miért magyaroknak?
--	A névnapok hagyománya Magyarországra jellemző.
--	Az integráció kizárólag magyar neveket tartalmaz.
--	Magyar nyelvű megjelenítést biztosít.
-________________________________________
-## Hibajelentés és fejlesztési ötletek
-Ha hibát találsz vagy javaslatod van, nyiss egy [issue-t a GitHub oldalon](https://github.com/fantnhu/ha-magyar-nevnap/issues/).
-________________________________________
-## Képernyőképek
+## ✨ Funkciók
 
-![](https://raw.githubusercontent.com/fantnhu/ha-magyar-nevnap/refs/heads/main/img/screenshot02.png)
+- 🎯 **Kiemelt névnap**: Az aktuális nap első névnapja
+- 📅 **Másodlagos névnap**: Az aktuális nap további névnapjai
+- 📆 **Naptár entitás**: A névnapok naptár formátumban is elérhetők
 
-Példa szenzor értékek:
--	Kiemelt névnap: "Olivér"
--	Másodlagos névnap: "Rufusz, Ilián, Kolumbán, Amália, Mária"
-________________________________________
-## Licenc
-Ez a projekt az MIT Licenc alatt érhető el.
+## 🛠️ Telepítés
+
+1. Másold a `custom_components/magyar_nevnap` mappát a Home Assistant `custom_components` könyvtárába
+2. Indítsd újra a Home Assistant-ot
+3. Menj a Beállítások > Eszközök és szolgáltatások menüpontba
+4. Kattints az "Integráció hozzáadása" gombra
+5. Keresd meg a "Magyar Névnapok" integrációt
+6. Kövesd a telepítési varázsló lépéseit
+
+## 📊 Entitások
+
+### Szenzorok
+
+| Entitás | Típus | Leírás |
+|---------|-------|--------|
+| `sensor.magyar_nevnap_kiemelt_nevnap` | `string` | Az aktuális névnapja |
+| `sensor.magyar_nevnap_masodlagos_nevnap` | `string` | Az aktuális nap további névnapjai |
+
+### Naptár
+
+| Entitás | Típus | Leírás |
+|---------|-------|--------|
+| `calendar.magyar_nevnapok` | `calendar` | A névnapok naptár formátumban |
+
+## ⚙️ Konfiguráció
+
+Az integráció nem igényel további konfigurációt a telepítés után. Az adatok automatikusan frissülnek óránként.
+
+## 🔄 Frissítési gyakoriság
+
+- A frissítési intervallum: 1 óra
+
+## 🎨 Testreszabás
+
+Az entitások alapértelmezett ikonja: `mdi:party-popper`
+
+## 🤝 Közreműködés
+
+Ha hibát találsz vagy fejlesztési javaslatod van, kérlek nyiss egy [issue-t a GitHub oldalon](https://github.com/fantnhu/ha-magyar-nevnap/issues/)
+
+## 📄 Licensz
+
+Ez a projekt MIT licensz alatt áll. További információért lásd a LICENSE fájlt.
+
+## 🔗 Hasznos linkek
+
+- [Home Assistant közösség](https://community.home-assistant.io/)
 
