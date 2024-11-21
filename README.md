@@ -28,7 +28,7 @@ A Magyar Névnap integráció lehetővé teszi a magyar névnapok megjelenítés
 
 | Entitás | Típus | Leírás |
 |---------|-------|--------|
-| `sensor.magyar_nevnap_kiemelt_nevnap` | `string` | Az aktuális névnapja |
+| `sensor.magyar_nevnap_kiemelt_nevnap` | `string` | Az aktuális napra eső névnap |
 | `sensor.magyar_nevnap_masodlagos_nevnap` | `string` | Az aktuális nap további névnapjai |
 
 ### Naptár
