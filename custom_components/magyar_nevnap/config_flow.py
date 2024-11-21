@@ -1,4 +1,4 @@
-"""Config flow for Névnap integration."""
+"""Config flow for Magyar Névnap integration."""
 from __future__ import annotations
 
 from typing import Any
@@ -13,8 +13,8 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
     """Validate the user input allows us to connect."""
     return {"title": "Magyar Névnapok"}
 
-class NevnapConfigFlow(config_entries.ConfigFlow, domain="nevnap"):
-    """Handle a config flow for Névnap integration."""
+class MagyarNevnapConfigFlow(config_entries.ConfigFlow, domain="magyar_nevnap"):
+    """Handle a config flow for Magyar Névnap integration."""
 
     VERSION = 1
 
@@ -28,7 +28,7 @@ class NevnapConfigFlow(config_entries.ConfigFlow, domain="nevnap"):
                 data_schema=vol.Schema({})
             )
 
-        await self.async_set_unique_id("nevnap")
+        await self.async_set_unique_id("magyar_nevnap")
         self._abort_if_unique_id_configured()
 
         return self.async_create_entry(

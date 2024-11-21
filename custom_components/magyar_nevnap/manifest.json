@@ -1,10 +1,10 @@
 {
-  "domain": "nevnap",
+  "domain": "magyar_nevnap",
   "name": "Magyar Névnapok",
   "version": "1.0.0",
-  "documentation": "https://github.com/your_username/ha-nevnap",
+  "documentation": "https://github.com/fantnhu/ha-magyar-nevnap",
   "dependencies": [],
-  "codeowners": ["@your_username"],
+  "codeowners": ["@fantnhu"],
   "requirements": ["aiohttp"],
   "iot_class": "cloud_polling",
   "config_flow": true

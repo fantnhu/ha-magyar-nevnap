@@ -13,14 +13,16 @@
     },
     "entity": {
         "sensor": {
-            "nevnap_elso": {
-                "name": "Névnap elsődleges"
+            "kiemelt_nevnap": {
+                "name": "Kiemelt névnap"
             },
-            "nevnap_masodik": {
-                "name": "Névnap másodlagos"
-            },
-            "egyeb_nevnapok": {
-                "name": "Egyéb Névnapok"
+            "masodlagos_nevnap": {
+                "name": "Másodlagos névnap"
+            }
+        },
+        "calendar": {
+            "magyar_nevnapok": {
+                "name": "Magyar névnapok"
             }
         }
     }
