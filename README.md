@@ -1,3 +1,4 @@
+![](https://raw.githubusercontent.com/fantnhu/ha-magyar-nevnap/refs/heads/main/img/header_img.png)
 # Magyar Névnap Integráció a Home Assistant-hoz
 ***This integration might be interesting for Hungarian users! This integration collects the Hungarian name days.***
 Az integráció elsősorban magyar felhasználóknak készült, mivel magyar neveket tartalmaz, és Magyarországon ünnepeljük a névnapokat.
@@ -9,6 +10,8 @@ Ez egy egyedi integráció, amely a magyar névnapokat jeleníti meg a Home Assi
 
 Valamint az integráció létrehoz egy naptárat, melybe minden nap bekerül az aktuális névnap:
 - Magyar névnap
+
+![](https://raw.githubusercontent.com/fantnhu/ha-magyar-nevnap/refs/heads/main/img/screenshot01.png)
 ________________________________________
 ## Fő jellemzők
 -	Két szenzor a névnapok megjelenítésére.
@@ -47,9 +50,12 @@ ________________________________________
 Ha hibát találsz vagy javaslatod van, nyiss egy [issue-t a GitHub oldalon](https://github.com/fantnhu/ha-magyar-nevnap/issues/).
 ________________________________________
 ## Képernyőképek
+
+![](https://raw.githubusercontent.com/fantnhu/ha-magyar-nevnap/refs/heads/main/img/screenshot02.png)
+
 Példa szenzor értékek:
--	Névnap elsődleges: "István"
--	Névnap másodlagos: "János"
+-	Kiemelt névnap: "Olivér"
+-	Másodlagos névnap: "Rufusz, Ilián, Kolumbán, Amália, Mária"
 ________________________________________
 ## Licenc
 Ez a projekt az MIT Licenc alatt érhető el.
