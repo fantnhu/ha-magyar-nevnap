@@ -1,37 +1,39 @@
-"""Config flow for Magyar Névnap integration."""
-from __future__ import annotations
-
-from typing import Any
 import voluptuous as vol
 
 from homeassistant import config_entries
-from homeassistant.core import HomeAssistant
-from homeassistant.data_entry_flow import FlowResult
-import homeassistant.helpers.config_validation as cv
+from homeassistant.core import callback
 
-async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str, Any]:
-    """Validate the user input allows us to connect."""
-    return {"title": "Magyar Névnapok"}
+from .const import (
+    CONF_INCLUDE_SECONDARY, CONF_UPDATE_INTERVAL, CONF_WATCHED_NAMES,
+    DEFAULT_UPDATE_INTERVAL, DOMAIN, NAME,
+)
 
-class MagyarNevnapConfigFlow(config_entries.ConfigFlow, domain="magyar_nevnap"):
-    """Handle a config flow for Magyar Névnap integration."""
 
+class MagyarNevnapConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     VERSION = 1
 
-    async def async_step_user(
-        self, user_input: dict[str, Any] | None = None
-    ) -> FlowResult:
-        """Handle the initial step."""
-        if user_input is None:
-            return self.async_show_form(
-                step_id="user",
-                data_schema=vol.Schema({})
-            )
-
-        await self.async_set_unique_id("magyar_nevnap")
+    async def async_step_user(self, user_input=None):
+        await self.async_set_unique_id(DOMAIN)
         self._abort_if_unique_id_configured()
+        if user_input is not None:
+            return self.async_create_entry(title=NAME, data={})
+        return self.async_show_form(step_id="user", data_schema=vol.Schema({}))
 
-        return self.async_create_entry(
-            title="Magyar Névnapok",
-            data={}
-        )
+    @staticmethod
+    @callback
+    def async_get_options_flow(config_entry):
+        return NevnapOptionsFlow()
+
+
+class NevnapOptionsFlow(config_entries.OptionsFlowWithReload):
+    async def async_step_init(self, user_input=None):
+        if user_input is not None:
+            return self.async_create_entry(title="", data=user_input)
+        options = self.config_entry.options
+        return self.async_show_form(step_id="init", data_schema=vol.Schema({
+            vol.Required(CONF_UPDATE_INTERVAL, default=options.get(
+                CONF_UPDATE_INTERVAL, DEFAULT_UPDATE_INTERVAL)):
+                vol.All(vol.Coerce(int), vol.Range(min=5, max=1440)),
+            vol.Optional(CONF_WATCHED_NAMES, default=options.get(CONF_WATCHED_NAMES, "")): str,
+            vol.Required(CONF_INCLUDE_SECONDARY, default=options.get(CONF_INCLUDE_SECONDARY, True)): bool,
+        }))
