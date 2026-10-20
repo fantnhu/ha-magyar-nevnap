@@ -1,0 +1,54 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Magyar névnap",
+        "description": "A mai magyar névnapok és névnaptár hozzáadása."
+      }
+    },
+    "abort": {
+      "already_configured": "A Magyar névnap már be van állítva."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Frissítés és névfigyelés",
+        "description": "A figyelt neveket vesszővel válaszd el (például: Anna, István). A névfigyelő csak kitöltött névlista esetén jön létre. Az egyezés kis- és nagybetűtől független, de ékezetérzékeny.",
+        "data": {
+          "update_interval": "Frissítési időköz (perc)",
+          "watched_names": "Figyelt nevek",
+          "include_secondary": "Másodlagos névnapok figyelése is"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "kiemelt_nevnap": {
+        "name": "Kiemelt névnap"
+      },
+      "masodlagos_nevnap": {
+        "name": "Másodlagos névnap"
+      },
+      "last_successful_update": {
+        "name": "Utolsó sikeres frissítés"
+      }
+    },
+    "calendar": {
+      "magyar_nevnapok": {
+        "name": "Magyar névnap"
+      }
+    },
+    "binary_sensor": {
+      "watched_nameday": {
+        "name": "Figyelt névnap ma"
+      }
+    },
+    "button": {
+      "refresh": {
+        "name": "Frissítés"
+      }
+    }
+  }
+}

@@ -1,29 +1,54 @@
 {
-    "config": {
-        "abort": {
-            "already_configured": "Az integráció már be van állítva"
-        },
-        "step": {
-            "user": {
-                "description": "Magyar névnap szolgáltatás beállítása",
-                "title": "Magyar Névnapok"
-            }
-        },
-        "title": "Magyar Névnapok"
+  "config": {
+    "step": {
+      "user": {
+        "title": "Hungarian namedays",
+        "description": "Add today's Hungarian namedays and calendar."
+      }
     },
-    "entity": {
-        "sensor": {
-            "kiemelt_nevnap": {
-                "name": "Kiemelt névnap"
-            },
-            "masodlagos_nevnap": {
-                "name": "Másodlagos névnap"
-            }
-        },
-        "calendar": {
-            "magyar_nevnapok": {
-                "name": "Magyar névnapok"
-            }
-        }
+    "abort": {
+      "already_configured": "Hungarian namedays is already configured."
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Refresh and name watchlist",
+        "description": "Separate names with commas (for example: Anna, István). The watchlist sensor is created only when names are configured. Matching is case-insensitive and accent-sensitive.",
+        "data": {
+          "update_interval": "Update interval (minutes)",
+          "watched_names": "Watched names",
+          "include_secondary": "Include secondary namedays"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "kiemelt_nevnap": {
+        "name": "Primary nameday"
+      },
+      "masodlagos_nevnap": {
+        "name": "Secondary nameday"
+      },
+      "last_successful_update": {
+        "name": "Last successful update"
+      }
+    },
+    "calendar": {
+      "magyar_nevnapok": {
+        "name": "Hungarian namedays"
+      }
+    },
+    "binary_sensor": {
+      "watched_nameday": {
+        "name": "Watched nameday today"
+      }
+    },
+    "button": {
+      "refresh": {
+        "name": "Refresh"
+      }
+    }
+  }
 }

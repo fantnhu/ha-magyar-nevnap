@@ -1,30 +1,27 @@
-"""The Magyar Névnap integration."""
-from __future__ import annotations
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.typing import ConfigType
+from homeassistant.helpers.event import async_track_time_change
 
-DOMAIN = "magyar_nevnap"
-PLATFORMS: list[Platform] = [Platform.SENSOR, Platform.CALENDAR]
+from .coordinator import NevnapCoordinator
 
-async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
-    """Set up the Magyar Névnap component."""
-    hass.data[DOMAIN] = {}
-    return True
+PLATFORMS = [Platform.SENSOR, Platform.CALENDAR, Platform.BINARY_SENSOR, Platform.BUTTON]
+
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up Magyar Névnap from a config entry."""
-    hass.data.setdefault(DOMAIN, {})
-    hass.data[DOMAIN][entry.entry_id] = {}
-    
+    coordinator = NevnapCoordinator(hass, entry)
+    await coordinator.async_config_entry_first_refresh()
+    entry.runtime_data = coordinator
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+
+    async def refresh_new_day(now):
+        await coordinator.async_request_refresh()
+
+    entry.async_on_unload(async_track_time_change(
+        hass, refresh_new_day, hour=0, minute=0, second=0,
+    ))
     return True
 
+
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Unload a config entry."""
-    unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
-    if unload_ok:
-        hass.data[DOMAIN].pop(entry.entry_id)
-    return unload_ok
+    return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
